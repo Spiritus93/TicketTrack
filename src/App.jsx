@@ -1,11 +1,9 @@
 import './styles/App.scss'
+import Header from "./components/Header/Header.jsx";
 
 function App() {
   return (
-      <main>
-        <h1>TicketTrack</h1>
-        <p>Your personal concert ticket manager.</p>
-      </main>
+      <Header />
   );
 }
 
