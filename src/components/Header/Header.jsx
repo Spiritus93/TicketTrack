@@ -5,7 +5,7 @@ const Header = () => {
         <header className="header">
             <h1>TicketTrack</h1>
             <p>Your personal concert ticket manager.</p>
-            <nav className="menu">
+            <nav className="main-menu">
                 <ul className="menu-list">
                     <li className="menu-item">Home</li>
                     <li className="menu-item">Add Concert</li>

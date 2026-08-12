@@ -1,9 +1,13 @@
 import './styles/App.scss'
 import Header from "./components/Header/Header.jsx";
+import Home from "./pages/Home/Home.jsx";
 
 function App() {
   return (
-      <Header />
+      <section id="center">
+          <Header />
+          <Home />
+      </section>
   );
 }
 
