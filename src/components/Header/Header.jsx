@@ -1,4 +1,5 @@
 import "./Header.scss";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
     return(
@@ -7,8 +8,8 @@ const Header = () => {
             <p>Your personal concert ticket manager.</p>
             <nav className="main-menu">
                 <ul className="menu-list">
-                    <li className="menu-item">Home</li>
-                    <li className="menu-item">Add Concert</li>
+                    <li className="menu-item"><NavLink to="/">Home</NavLink></li>
+                    <li className="menu-item"><NavLink to="/add-concert">Add Concert</NavLink></li>
                 </ul>
             </nav>
         </header>
