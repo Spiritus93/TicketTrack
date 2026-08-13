@@ -1,0 +1,31 @@
+{
+  "concerts": [
+    {
+      "id": 1,
+      "artist": "Metallica",
+      "tour": "M72 World Tour",
+      "date": "10. 5. 2027",
+      "location": "Vienna, Austria",
+      "ticketsSold": 42000,
+      "capacity": 50000
+    },
+    {
+      "id": 2,
+      "artist": "Foo Fighters",
+      "tour": "Now or never",
+      "date": "13. 7. 2027",
+      "location": "Ljubljana, Slovenia",
+      "ticketsSold": 33700,
+      "capacity": 40000
+    },
+    {
+      "id": 3,
+      "artist": "Red Hot Chilli Peppers",
+      "tour": "Around the World",
+      "date": "25. 8. 2027",
+      "location": "Milan, Italy",
+      "ticketsSold": 37000,
+      "capacity": 60000
+    }
+  ]
+}
