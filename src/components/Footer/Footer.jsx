@@ -3,7 +3,7 @@ import "./Footer.scss";
 const Footer = () => {
     return (
         <footer className="footer">
-            <p className="Footer">TicketTrack 2026</p>
+            <p className="Footer">&copy; TicketTrack 2026</p>
         </footer>
     );
 };
