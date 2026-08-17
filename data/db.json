@@ -4,7 +4,7 @@
       "id": "1",
       "artist": "Metallica",
       "tour": "M72 World Tour",
-      "date": "10. 5. 2027",
+      "date": "2027-05-10",
       "location": "Vienna, Austria",
       "ticketsSold": 42000,
       "capacity": 50000
@@ -13,7 +13,7 @@
       "id": "2",
       "artist": "Foo Fighters",
       "tour": "Now or never",
-      "date": "13. 7. 2027",
+      "date": "2027-07-13",
       "location": "Ljubljana, Slovenia",
       "ticketsSold": 33700,
       "capacity": 40000
@@ -22,7 +22,7 @@
       "id": "3",
       "artist": "Red Hot Chilli Peppers",
       "tour": "Around the World",
-      "date": "25. 8. 2027",
+      "date": "2027-08-25",
       "location": "Milan, Italy",
       "ticketsSold": 37000,
       "capacity": 60000
