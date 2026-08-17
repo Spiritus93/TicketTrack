@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useState } from "react";
 
 const AddConcert = () => {
     const [formData, setFormData] = useState({
@@ -11,6 +11,7 @@ const AddConcert = () => {
     });
 
     const [errors, setErrors] = useState({});
+    const [success, setSuccess] = useState("");
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -23,7 +24,7 @@ const AddConcert = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+        setSuccess("");
         const newErrors = {};
 
         if (formData.artist.trim() === "") {
@@ -101,6 +102,19 @@ const AddConcert = () => {
             },
             body: JSON.stringify(newConcert)
         });
+
+        if (response.ok) {
+            setSuccess("Concert added successfully.");
+            setFormData({
+                artist: "",
+                tour: "",
+                date: "",
+                location: "",
+                ticketsSold: "",
+                capacity: ""
+            });
+            setErrors({});
+        }
     };
 
     return (
@@ -157,6 +171,11 @@ const AddConcert = () => {
                 )}
 
                 <input type="submit" value="Add Concert" />
+                {success && (
+                    <span className="form-success">
+                        {success}
+                    </span>
+                )}
             </form>
         </section>
     );
