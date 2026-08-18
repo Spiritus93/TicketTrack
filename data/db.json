@@ -26,15 +26,6 @@
       "location": "Milan, Italy",
       "ticketsSold": 37000,
       "capacity": 60000
-    },
-    {
-      "artist": "Journey",
-      "tour": "Stars",
-      "date": "2026-09-04",
-      "location": "Maribor, Slovenia",
-      "ticketsSold": 17000,
-      "capacity": 20000,
-      "id": "r2-nlFtRQ_4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -1,6 +1,7 @@
 import "./ConcertCard.scss";
+import { NavLink } from "react-router-dom";
 
-const ConcertCard = ({ artist, tour, date, location, ticketsSold, capacity }) => {
+const ConcertCard = ({ id, artist, tour, date, location, ticketsSold, capacity }) => {
     const formattedDate = new Date(date).toLocaleDateString("sl-SI");
 
     return (
@@ -10,6 +11,7 @@ const ConcertCard = ({ artist, tour, date, location, ticketsSold, capacity }) =>
             <p>{formattedDate}</p>
             <p>{location}</p>
             <p>{ticketsSold} / {capacity} tickets sold</p>
+            <NavLink to={`/concert-details/${id}`}>Concert Details</NavLink>
         </article>
     );
 };

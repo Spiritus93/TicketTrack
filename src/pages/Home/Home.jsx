@@ -25,6 +25,7 @@ const Home = () => {
             {concerts.map((concert) => (
                 <ConcertCard
                     key={concert.id}
+                    id={concert.id}
                     artist={concert.artist}
                     tour={concert.tour}
                     date={concert.date}
