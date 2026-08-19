@@ -26,6 +26,15 @@
       "location": "Milan, Italy",
       "ticketsSold": 37000,
       "capacity": 60000
+    },
+    {
+      "artist": "Journey",
+      "tour": "Stars",
+      "date": "2026-09-09",
+      "location": "Ljubljana, Slovenia",
+      "ticketsSold": "12000",
+      "capacity": "20000",
+      "id": "LX9YUp28cmU"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
