@@ -21,20 +21,20 @@ const Home = () => {
     return(
         <section className="concerts">
             <h2 className="concerts-title">Available Concerts</h2>
-
-            {concerts.map((concert) => (
-                <ConcertCard
-                    key={concert.id}
-                    id={concert.id}
-                    artist={concert.artist}
-                    tour={concert.tour}
-                    date={concert.date}
-                    location={concert.location}
-                    ticketsSold={concert.ticketsSold}
-                    capacity={concert.capacity}
-                />
-            ))}
-
+            <div className="concerts-grid">
+                {concerts.map((concert) => (
+                    <ConcertCard
+                        key={concert.id}
+                        id={concert.id}
+                        artist={concert.artist}
+                        tour={concert.tour}
+                        date={concert.date}
+                        location={concert.location}
+                        ticketsSold={concert.ticketsSold}
+                        capacity={concert.capacity}
+                    />
+                ))}
+            </div>
         </section>
     )
 }

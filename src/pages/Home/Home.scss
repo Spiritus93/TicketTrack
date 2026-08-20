@@ -2,4 +2,17 @@
   font-size: 1.8rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.concerts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .concerts-grid {
+    grid-template-columns: 1fr;
+  }
 }

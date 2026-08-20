@@ -2,6 +2,12 @@
   box-sizing: border-box;
 }
 
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -9,7 +15,10 @@ body {
 }
 
 main {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  flex: 1;
+  overflow-y: auto;
 }

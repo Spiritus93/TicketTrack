@@ -11,7 +11,7 @@ const ConcertCard = ({ id, artist, tour, date, location, ticketsSold, capacity }
             <p>{formattedDate}</p>
             <p>{location}</p>
             <p>{ticketsSold} / {capacity} tickets sold</p>
-            <NavLink to={`/concert-details/${id}`}>Concert Details</NavLink>
+            <NavLink className="details-link" to={`/concert-details/${id}`}>Concert Details</NavLink>
         </article>
     );
 };

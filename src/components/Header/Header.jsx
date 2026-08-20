@@ -4,8 +4,10 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
     return(
         <header className="header">
-            <h1>TicketTrack</h1>
-            <p>Your personal concert ticket manager.</p>
+            <div className="brand">
+                <h1>TicketTrack</h1>
+                <p>Your personal concert ticket manager.</p>
+            </div>
             <nav className="main-menu">
                 <ul className="menu-list">
                     <li className="menu-item"><NavLink to="/">Home</NavLink></li>
