@@ -19,23 +19,25 @@ const Home = () => {
     }, []);
 
     return(
-        <section className="concerts">
-            <h2 className="concerts-title">Available Concerts</h2>
-            <div className="concerts-grid">
-                {concerts.map((concert) => (
-                    <ConcertCard
-                        key={concert.id}
-                        id={concert.id}
-                        artist={concert.artist}
-                        tour={concert.tour}
-                        date={concert.date}
-                        location={concert.location}
-                        ticketsSold={concert.ticketsSold}
-                        capacity={concert.capacity}
-                    />
-                ))}
-            </div>
-        </section>
+        <div className="home">
+            <section className="concerts">
+                <h2 className="concerts-title">Available Concerts</h2>
+                <div className="concerts-grid">
+                    {concerts.map((concert) => (
+                        <ConcertCard
+                            key={concert.id}
+                            id={concert.id}
+                            artist={concert.artist}
+                            tour={concert.tour}
+                            date={concert.date}
+                            location={concert.location}
+                            ticketsSold={concert.ticketsSold}
+                            capacity={concert.capacity}
+                        />
+                    ))}
+                </div>
+            </section>
+        </div>
     )
 }
 

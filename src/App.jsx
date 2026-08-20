@@ -5,14 +5,17 @@ import AddConcert from "./pages/AddConcert/AddConcert.jsx";
 import ConcertDetails from "./pages/ConcertDetails/ConcertDetails.jsx";
 import EditConcert from "./pages/EditConcert/EditConcert.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 function App() {
+
+    const location = useLocation();
+
   return (
       <>
           <Header />
 
-          <main id="center">
+          <main className={location.pathname === "/" ? "home-background" : ""}>
               <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/add-concert" element={<AddConcert />} />

@@ -46,7 +46,7 @@ const ConcertDetails = () => {
 
     return(
         <section className="concerts">
-            <h2 className="concerts-title">Concert Details</h2>
+            <h2 className="concerts-title-details">Concert Details</h2>
             <div className="concert-details">
                 <h3>{concert?.artist}</h3>
                 <p>{concert?.tour}</p>

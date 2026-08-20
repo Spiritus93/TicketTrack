@@ -16,9 +16,16 @@ body {
 
 main {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
   padding: 2rem;
   flex: 1;
   overflow-y: auto;
+}
+
+.home-background {
+  background:
+          linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+          url("../assets/cover-image.jpg");
+
+  background-size: cover;
+  background-position: center;
 }
