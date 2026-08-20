@@ -1,3 +1,4 @@
+import "./AddConcert.scss";
 import { useState } from "react";
 
 const AddConcert = () => {
@@ -118,8 +119,8 @@ const AddConcert = () => {
     };
 
     return (
-        <section>
-            <h2>Add Concert</h2>
+        <section className="add-concert">
+            <h2>New Concert</h2>
 
             <form onSubmit={handleSubmit}>
                 <label htmlFor="artist">Artist:</label>

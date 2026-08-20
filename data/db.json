@@ -35,6 +35,15 @@
       "ticketsSold": "12000",
       "capacity": "20000",
       "id": "LX9YUp28cmU"
+    },
+    {
+      "artist": "Simply Red",
+      "tour": "Galaxy",
+      "date": "2026-09-05",
+      "location": "Toronto, Canada",
+      "ticketsSold": 25000,
+      "capacity": 30000,
+      "id": "4Fj0gsjcjJ4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
