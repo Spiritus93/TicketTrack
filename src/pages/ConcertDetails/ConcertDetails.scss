@@ -1,0 +1,48 @@
+.concert-details {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+  p {
+    margin: 10px 0;
+  }
+}
+
+.ticket-info {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.concert-details-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
+
+  button {
+    padding: 10px 16px;
+    cursor: pointer;
+  }
+}
+
+.edit-button {
+  background-color: #222;
+  color: white;
+  border-radius: 0.3rem;
+}
+
+.delete-button {
+  background-color: #b83232;
+  color: white;
+  border-radius: 0.3rem;
+}

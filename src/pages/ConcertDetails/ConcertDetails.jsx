@@ -47,13 +47,22 @@ const ConcertDetails = () => {
     return(
         <section className="concerts">
             <h2 className="concerts-title">Concert Details</h2>
-            <p>{concert?.artist}</p>
-            <p>{concert?.tour}</p>
-            <p>{formattedDate}</p>
-            <p>{concert?.location}</p>
-            <p>{concert?.ticketsSold} / {concert?.capacity} tickets sold</p>
-            <button onClick={handleEdit}>Edit Concert</button>
-            <button onClick={handleDelete}>Delete Concert</button>
+            <div className="concert-details">
+                <h3>{concert?.artist}</h3>
+                <p>{concert?.tour}</p>
+                <p>{formattedDate}</p>
+                <p>{concert?.location}</p>
+                <p className="ticket-info">
+                    {concert?.ticketsSold} / {concert?.capacity} tickets sold
+                </p>
+
+                <div className="concert-details-actions">
+                    <button className="edit-button" onClick={handleEdit}>Edit Concert</button>
+                    <button className="delete-button" onClick={handleDelete}>
+                        Delete Concert
+                    </button>
+                </div>
+            </div>
         </section>
     )
 }
