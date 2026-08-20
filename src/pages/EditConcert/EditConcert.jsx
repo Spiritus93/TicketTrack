@@ -1,3 +1,4 @@
+import "./EditConcert.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -104,7 +105,7 @@ const EditConcert = () => {
     };
 
     return(
-        <section className="concerts">
+        <section className="edit-concert">
             <h2>Edit Concert</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="artist">Artist:</label>
@@ -221,8 +222,10 @@ const EditConcert = () => {
                     </span>
                 )}
 
-                <button type="submit">Save Changes</button>
-                <button type="button" onClick={handleCancel}>Cancel</button>
+                <button className="save-button" type="submit">Save Changes</button>
+                <button className="cancel-button" type="button" onClick={handleCancel}>
+                    Cancel
+                </button>
             </form>
         </section>
     )
