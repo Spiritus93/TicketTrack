@@ -11,11 +11,20 @@ function App() {
 
     const location = useLocation();
 
+    let mainClass = "";
+
+    if (location.pathname === "/") {
+        mainClass = "home-background";
+    }
+    else if (location.pathname.startsWith("/concert-details/")) {
+        mainClass = "details-background";
+    }
+
   return (
       <>
           <Header />
 
-          <main className={location.pathname === "/" ? "home-background" : ""}>
+          <main className={mainClass}>
               <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/add-concert" element={<AddConcert />} />
