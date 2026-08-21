@@ -17,6 +17,12 @@
   margin-top: 0.5rem;
 }
 
+@media (max-width: 600px) {
+  .brand p {
+    display: none;
+  }
+}
+
 .menu-list {
   display: flex;
   gap: 1rem;
