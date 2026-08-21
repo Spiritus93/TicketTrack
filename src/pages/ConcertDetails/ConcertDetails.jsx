@@ -24,6 +24,11 @@ const ConcertDetails = () => {
         fetchConcert();
     }, [id]);
 
+    const remainingTickets = concert
+        ? concert.capacity - concert.ticketsSold
+        : 0;
+
+
     const handleEdit = () => {
         navigate(`/edit-concert/${id}`);
     };
@@ -49,12 +54,18 @@ const ConcertDetails = () => {
             <h2 className="concerts-title-details">Concert Details</h2>
             <div className="concert-details">
                 <h3>{concert?.artist}</h3>
-                <p>{concert?.tour}</p>
-                <p>{formattedDate}</p>
-                <p>{concert?.location}</p>
+                <p>Tour: {concert?.tour}</p>
+                <p>Date: {formattedDate}</p>
+                <p>Time: {concert?.time}</p>
+                <p>Venue: {concert?.venue}</p>
+                <p>Location: {concert?.location}</p>
+                <p>Genre: {concert?.genre}</p>
+                <p>Ticket price: {concert?.ticketPrice} €</p>
                 <p className="ticket-info">
                     {concert?.ticketsSold} / {concert?.capacity} tickets sold
                 </p>
+                <p>Remaining tickets: {remainingTickets}</p>
+                <p>{concert?.description}</p>
 
                 <div className="concert-details-actions">
                     <button className="edit-button" onClick={handleEdit}>Edit Concert</button>

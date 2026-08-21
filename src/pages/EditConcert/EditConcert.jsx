@@ -128,7 +128,7 @@ const EditConcert = () => {
         <section className="edit-concert">
             <h2>Edit Concert</h2>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="artist">Artist:</label>
+                <label htmlFor="artist">* Artist:</label>
                 <input
                     type="text"
                     id="artist"
@@ -147,7 +147,7 @@ const EditConcert = () => {
                     </span>
                 )}
 
-                <label htmlFor="tour">Tour:</label>
+                <label htmlFor="tour">* Tour:</label>
                 <input
                     type="text"
                     id="tour"
@@ -166,7 +166,7 @@ const EditConcert = () => {
                     </span>
                 )}
 
-                <label htmlFor="date">Date:</label>
+                <label htmlFor="date">* Date:</label>
                 <input
                     type="date"
                     id="date"
@@ -185,7 +185,7 @@ const EditConcert = () => {
                     </span>
                 )}
 
-                <label htmlFor="time">Time:</label>
+                <label htmlFor="time">* Time:</label>
                 <input
                     type="time"
                     id="time"
@@ -204,7 +204,7 @@ const EditConcert = () => {
                     </span>
                 )}
 
-                <label htmlFor="venue">Venue:</label>
+                <label htmlFor="venue">* Venue:</label>
                 <input
                     type="text"
                     id="venue"
@@ -223,7 +223,7 @@ const EditConcert = () => {
                     </span>
                 )}
 
-                <label htmlFor="location">Location:</label>
+                <label htmlFor="location">* Location:</label>
                 <input
                     type="text"
                     id="location"
@@ -256,7 +256,7 @@ const EditConcert = () => {
                     }}
                 />
 
-                <label htmlFor="ticketPrice">Ticket price:</label>
+                <label htmlFor="ticketPrice">* Ticket price (€):</label>
                 <input
                     type="number"
                     id="ticketPrice"
@@ -275,7 +275,7 @@ const EditConcert = () => {
                     </span>
                 )}
 
-                <label htmlFor="ticketsSold">Tickets Sold:</label>
+                <label htmlFor="ticketsSold">* Tickets Sold:</label>
                 <input
                     type="number"
                     id="ticketsSold"
@@ -294,7 +294,7 @@ const EditConcert = () => {
                     </span>
                 )}
 
-                <label htmlFor="capacity">Capacity:</label>
+                <label htmlFor="capacity">* Capacity:</label>
                 <input
                     type="number"
                     id="capacity"

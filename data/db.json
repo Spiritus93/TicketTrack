@@ -83,6 +83,20 @@
       "capacity": "50000",
       "description": "Madonna is playing for Budapest.",
       "id": "XoDJPQBaEEg"
+    },
+    {
+      "artist": "Robbie Williams",
+      "tour": "Advertising Space",
+      "date": "2026-10-15",
+      "time": "20:00",
+      "venue": "Arena",
+      "location": "Pula, Croatia",
+      "genre": "",
+      "ticketPrice": "80",
+      "ticketsSold": 5000,
+      "capacity": 8000,
+      "description": "",
+      "id": "iJiKEZ5dWxQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

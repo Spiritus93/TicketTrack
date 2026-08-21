@@ -155,7 +155,7 @@ const AddConcert = () => {
             <h2>New Concert</h2>
 
             <form onSubmit={handleSubmit}>
-                <label htmlFor="artist">Artist:</label>
+                <label htmlFor="artist">* Artist:</label>
                 <input type="text" id="artist" name="artist" value={formData.artist} onChange={handleChange} />
                 {errors.artist && (
                     <span className="form-error" role="alert">
@@ -163,7 +163,7 @@ const AddConcert = () => {
                     </span>
                 )}
 
-                <label htmlFor="tour">Tour:</label>
+                <label htmlFor="tour">* Tour:</label>
                 <input type="text" id="tour" name="tour" value={formData.tour} onChange={handleChange} />
                 {errors.tour && (
                     <span className="form-error" role="alert">
@@ -171,7 +171,7 @@ const AddConcert = () => {
                     </span>
                 )}
 
-                <label htmlFor="date">Date:</label>
+                <label htmlFor="date">* Date:</label>
                 <input type="date" id="date" name="date" value={formData.date} onChange={handleChange} />
                 {errors.date && (
                     <span className="form-error" role="alert">
@@ -179,7 +179,7 @@ const AddConcert = () => {
                     </span>
                 )}
 
-                <label htmlFor="time">Time:</label>
+                <label htmlFor="time">* Time:</label>
                 <input type="time" id="time" name="time" value={formData.time} onChange={handleChange} />
                 {errors.time && (
                     <span className="form-error" role="alert">
@@ -187,7 +187,7 @@ const AddConcert = () => {
                     </span>
                 )}
 
-                <label htmlFor="venue">Venue:</label>
+                <label htmlFor="venue">* Venue:</label>
                 <input type="text" id="venue" name="venue" value={formData.venue} onChange={handleChange} />
                 {errors.venue && (
                     <span className="form-error" role="alert">
@@ -195,7 +195,7 @@ const AddConcert = () => {
                     </span>
                 )}
 
-                <label htmlFor="location">Location:</label>
+                <label htmlFor="location">* Location:</label>
                 <input type="text" id="location" name="location" value={formData.location} onChange={handleChange} />
                 {errors.location && (
                     <span className="form-error" role="alert">
@@ -206,7 +206,7 @@ const AddConcert = () => {
                 <label htmlFor="genre">Genre:</label>
                 <input type="text" id="genre" name="genre" value={formData.genre} onChange={handleChange} />
 
-                <label htmlFor="ticketPrice">Ticket price:</label>
+                <label htmlFor="ticketPrice">* Ticket price (€):</label>
                 <input type="number" id="ticketPrice" name="ticketPrice" value={formData.ticketPrice} onChange={handleChange} />
                 {errors.ticketPrice && (
                     <span className="form-error" role="alert">
@@ -214,7 +214,7 @@ const AddConcert = () => {
                     </span>
                 )}
 
-                <label htmlFor="ticketsSold">Tickets sold:</label>
+                <label htmlFor="ticketsSold">* Tickets sold:</label>
                 <input type="number" id="ticketsSold" name="ticketsSold" value={formData.ticketsSold} onChange={handleChange} />
                 {errors.ticketsSold && (
                     <span className="form-error" role="alert">
@@ -222,7 +222,7 @@ const AddConcert = () => {
                     </span>
                 )}
 
-                <label htmlFor="capacity">Capacity:</label>
+                <label htmlFor="capacity">* Capacity:</label>
                 <input type="number" id="capacity" name="capacity" value={formData.capacity} onChange={handleChange} />
                 {errors.capacity && (
                     <span className="form-error" role="alert">
