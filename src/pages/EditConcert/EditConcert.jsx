@@ -49,8 +49,27 @@ const EditConcert = () => {
             }
         }
 
+        if (concert.time.trim() === "") {
+            newErrors.time = "Time is required.";
+        }
+
+        if (concert.venue.trim() === "") {
+            newErrors.venue = "Venue is required.";
+        }
+
         if (concert.location.trim() === "") {
             newErrors.location = "Location is required.";
+        }
+
+        if (concert.ticketPrice.trim() === "") {
+            newErrors.ticketPrice = "Ticket price is required.";
+        }
+        else {
+            const ticketPrice = Number(concert.ticketPrice);
+
+            if (ticketPrice < 0) {
+                newErrors.ticketPrice = "Ticket price can't be negative.";
+            }
         }
 
         if (String(concert.ticketsSold).trim() === "") {
@@ -77,7 +96,8 @@ const EditConcert = () => {
             concert.ticketsSold !== "" &&
             concert.capacity !== "" &&
             Number(concert.ticketsSold) > Number(concert.capacity)
-        ) {
+        )
+        {
             newErrors.ticketsSold =
                 "Tickets sold can't be greater than the capacity of the venue.";
         }
@@ -165,6 +185,44 @@ const EditConcert = () => {
                     </span>
                 )}
 
+                <label htmlFor="time">Time:</label>
+                <input
+                    type="time"
+                    id="time"
+                    name="time"
+                    value={concert?.time || ""}
+                    onChange={(event) => {
+                        setConcert({
+                            ...concert,
+                            time: event.target.value
+                        });
+                    }}
+                />
+                {errors.time && (
+                    <span className="form-error" role="alert">
+                        {errors.time}
+                    </span>
+                )}
+
+                <label htmlFor="venue">Venue:</label>
+                <input
+                    type="text"
+                    id="venue"
+                    name="venue"
+                    value={concert?.venue || ""}
+                    onChange={(event) => {
+                        setConcert({
+                            ...concert,
+                            venue: event.target.value
+                        });
+                    }}
+                />
+                {errors.venue && (
+                    <span className="form-error" role="alert">
+                        {errors.venue}
+                    </span>
+                )}
+
                 <label htmlFor="location">Location:</label>
                 <input
                     type="text"
@@ -181,6 +239,39 @@ const EditConcert = () => {
                 {errors.location && (
                     <span className="form-error" role="alert">
                         {errors.location}
+                    </span>
+                )}
+
+                <label htmlFor="genre">Genre:</label>
+                <input
+                    type="text"
+                    id="genre"
+                    name="genre"
+                    value={concert?.genre || ""}
+                    onChange={(event) => {
+                        setConcert({
+                            ...concert,
+                            genre: event.target.value
+                        });
+                    }}
+                />
+
+                <label htmlFor="ticketPrice">Ticket price:</label>
+                <input
+                    type="number"
+                    id="ticketPrice"
+                    name="ticketPrice"
+                    value={concert?.ticketPrice || ""}
+                    onChange={(event) => {
+                        setConcert({
+                            ...concert,
+                            ticketPrice: event.target.value
+                        });
+                    }}
+                />
+                {errors.ticketPrice && (
+                    <span className="form-error" role="alert">
+                        {errors.ticketPrice}
                     </span>
                 )}
 
@@ -221,6 +312,19 @@ const EditConcert = () => {
                         {errors.capacity}
                     </span>
                 )}
+
+                <label htmlFor="description">Description:</label>
+                <input
+                    type="textarea"
+                    name="description"
+                    value={concert?.description || ""}
+                    onChange={(event) => {
+                        setConcert({
+                        ...concert,
+                        description: event.target.value
+                        });
+                    }}
+                />
 
                 <button className="save-button" type="submit">Save Changes</button>
                 <button className="cancel-button" type="button" onClick={handleCancel}>

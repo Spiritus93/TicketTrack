@@ -72,15 +72,15 @@
     },
     {
       "artist": "Madonna",
-      "tour": "Like a Virgin",
-      "date": "2026-11-20",
-      "time": "19:00",
+      "tour": "Wonder",
+      "date": "2026-12-25",
+      "time": "20:00",
       "venue": "Papp László Budapest Sportaréna",
       "location": "Budapest, Hungary",
       "genre": "Pop",
-      "ticketPrice": "130",
-      "ticketsSold": 35000,
-      "capacity": 50000,
+      "ticketPrice": "120",
+      "ticketsSold": "35000",
+      "capacity": "50000",
       "description": "Madonna is playing for Budapest.",
       "id": "XoDJPQBaEEg"
     }
