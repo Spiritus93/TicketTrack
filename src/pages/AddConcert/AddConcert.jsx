@@ -6,9 +6,14 @@ const AddConcert = () => {
         artist: "",
         tour: "",
         date: "",
+        time: "",
+        venue: "",
         location: "",
+        genre: "",
+        ticketPrice:"",
         ticketsSold: "",
-        capacity: ""
+        capacity: "",
+        description: "",
     });
 
     const [errors, setErrors] = useState({});
@@ -50,13 +55,33 @@ const AddConcert = () => {
             }
         }
 
+        if (formData.time.trim() === "") {
+            newErrors.time = "Time is required.";
+        }
+
+        if (formData.venue.trim() === "") {
+            newErrors.venue = "Venue is required.";
+        }
+
         if (formData.location.trim() === "") {
             newErrors.location = "Location is required.";
         }
 
+        if (formData.ticketPrice.trim() === "") {
+            newErrors.ticketPrice = "Ticket price is required.";
+        }
+        else {
+            const ticketPrice = Number(formData.ticketPrice);
+
+            if (ticketPrice < 0) {
+                newErrors.ticketPrice = "Ticket price can't be negative.";
+            }
+        }
+
         if (formData.ticketsSold.trim() === "") {
             newErrors.ticketsSold = "Tickets sold is required.";
-        } else {
+        }
+        else {
             const ticketsSold = Number(formData.ticketsSold);
 
             if (ticketsSold < 0) {
@@ -66,7 +91,8 @@ const AddConcert = () => {
 
         if (formData.capacity.trim() === "") {
             newErrors.capacity = "Capacity is required.";
-        } else {
+        }
+        else {
             const capacity = Number(formData.capacity);
 
             if (capacity <= 0) {
@@ -78,7 +104,8 @@ const AddConcert = () => {
             formData.ticketsSold !== "" &&
             formData.capacity !== "" &&
             Number(formData.ticketsSold) > Number(formData.capacity)
-        ) {
+        )
+        {
             newErrors.ticketsSold =
                 "Tickets sold can't be greater than the capacity of the venue.";
         }
@@ -110,9 +137,14 @@ const AddConcert = () => {
                 artist: "",
                 tour: "",
                 date: "",
+                time: "",
+                venue: "",
                 location: "",
+                genre: "",
+                ticketPrice: "",
                 ticketsSold: "",
-                capacity: ""
+                capacity: "",
+                description: ""
             });
             setErrors({});
         }
@@ -147,11 +179,38 @@ const AddConcert = () => {
                     </span>
                 )}
 
+                <label htmlFor="time">Time:</label>
+                <input type="time" id="time" name="time" value={formData.time} onChange={handleChange} />
+                {errors.time && (
+                    <span className="form-error" role="alert">
+                        {errors.time}
+                    </span>
+                )}
+
+                <label htmlFor="venue">Venue:</label>
+                <input type="text" id="venue" name="venue" value={formData.venue} onChange={handleChange} />
+                {errors.venue && (
+                    <span className="form-error" role="alert">
+                        {errors.venue}
+                    </span>
+                )}
+
                 <label htmlFor="location">Location:</label>
                 <input type="text" id="location" name="location" value={formData.location} onChange={handleChange} />
                 {errors.location && (
                     <span className="form-error" role="alert">
                         {errors.location}
+                    </span>
+                )}
+
+                <label htmlFor="genre">Genre:</label>
+                <input type="text" id="genre" name="genre" value={formData.genre} onChange={handleChange} />
+
+                <label htmlFor="ticketPrice">Ticket price:</label>
+                <input type="number" id="ticketPrice" name="ticketPrice" value={formData.ticketPrice} onChange={handleChange} />
+                {errors.ticketPrice && (
+                    <span className="form-error" role="alert">
+                        {errors.ticketPrice}
                     </span>
                 )}
 
@@ -170,6 +229,9 @@ const AddConcert = () => {
                         {errors.capacity}
                     </span>
                 )}
+
+                <label htmlFor="description">Description:</label>
+                <textarea id="description" name="description" value={formData.description} onChange={handleChange} />
 
                 <input type="submit" value="Add Concert" />
                 {success && (
