@@ -12,6 +12,19 @@ const ConcertDetails = () => {
         ? new Date(concert.date).toLocaleDateString("sl-SI")
         : "";
 
+    let concertStatus = concert?.status;
+
+    if (concert) {
+        const concertDate = new Date(concert.date);
+        const currentDate = new Date();
+
+        currentDate.setHours(0, 0, 0, 0);
+
+        if (concert.status !== "Cancelled" && concertDate < currentDate) {
+            concertStatus = "Completed";
+        }
+    }
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -54,6 +67,7 @@ const ConcertDetails = () => {
             <h2 className="concerts-title-details">Concert Details</h2>
             <div className="concert-details">
                 <h3>{concert?.artist}</h3>
+                <p>Status: {concertStatus}</p>
                 <p>Tour: {concert?.tour}</p>
                 <p>Date: {formattedDate}</p>
                 <p>Time: {concert?.time}</p>

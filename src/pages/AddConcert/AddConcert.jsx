@@ -14,6 +14,7 @@ const AddConcert = () => {
         ticketsSold: "",
         capacity: "",
         description: "",
+        status: "Upcoming",
     });
 
     const [errors, setErrors] = useState({});

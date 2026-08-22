@@ -102,6 +102,10 @@ const EditConcert = () => {
                 "Tickets sold can't be greater than the capacity of the venue.";
         }
 
+        if (concert.status === "") {
+            newErrors.status = "Status is required.";
+        }
+
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
             return;
@@ -325,6 +329,22 @@ const EditConcert = () => {
                         });
                     }}
                 />
+
+                <label htmlFor="status">* Status:</label>
+                <select
+                    id="status"
+                    name="status"
+                    value={concert?.status || ""}
+                    onChange={(event) => {
+                        setConcert({
+                            ...concert,
+                            status: event.target.value
+                        });
+                    }}
+                >
+                    <option value="Upcoming">Upcoming</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
 
                 <button className="save-button" type="submit">Save Changes</button>
                 <button className="cancel-button" type="button" onClick={handleCancel}>

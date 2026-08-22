@@ -12,7 +12,8 @@
       "ticketPrice": "80",
       "ticketsSold": 42000,
       "capacity": 50000,
-      "description": "Metallica live on their M72 World Tour."
+      "description": "Metallica live on their M72 World Tour.",
+      "status": "Upcoming"
     },
     {
       "id": "2",
@@ -26,13 +27,14 @@
       "ticketPrice": "70",
       "ticketsSold": 33700,
       "capacity": 40000,
-      "description": "Foo Fighters playing their debut in Stožice."
+      "description": "Foo Fighters playing their debut in Stožice.",
+      "status": "Upcoming"
     },
     {
       "id": "3",
       "artist": "Red Hot Chilli Peppers",
       "tour": "Around the World",
-      "date": "2027-08-25",
+      "date": "2026-08-21",
       "time": "21:00",
       "venue": "Stadio San Siro",
       "location": "Milan, Italy",
@@ -40,7 +42,8 @@
       "ticketPrice": "50",
       "ticketsSold": 37000,
       "capacity": 60000,
-      "description": "Red Hot Chilli Peppers rock around the world."
+      "description": "Red Hot Chilli Peppers rock around the world.",
+      "status": "Upcoming"
     },
     {
       "artist": "Journey",
@@ -54,6 +57,7 @@
       "ticketsSold": 12000,
       "capacity": 20000,
       "description": "Journey playing at Kino Šiška.",
+      "status": "Upcoming",
       "id": "LX9YUp28cmU"
     },
     {
@@ -68,6 +72,7 @@
       "ticketsSold": 25000,
       "capacity": 30000,
       "description": "Simply red playing at Rogers Stadium.",
+      "status": "Upcoming",
       "id": "4Fj0gsjcjJ4"
     },
     {
@@ -82,6 +87,7 @@
       "ticketsSold": "35000",
       "capacity": "50000",
       "description": "Madonna is playing for Budapest.",
+      "status": "Cancelled",
       "id": "XoDJPQBaEEg"
     },
     {
@@ -96,6 +102,7 @@
       "ticketsSold": 5000,
       "capacity": 8000,
       "description": "",
+      "status": "Upcoming",
       "id": "iJiKEZ5dWxQ"
     }
   ],

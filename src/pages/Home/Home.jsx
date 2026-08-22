@@ -33,6 +33,7 @@ const Home = () => {
                             location={concert.location}
                             ticketsSold={concert.ticketsSold}
                             capacity={concert.capacity}
+                            status={concert.status}
                         />
                     ))}
                 </div>
