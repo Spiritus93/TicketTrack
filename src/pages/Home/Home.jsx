@@ -10,14 +10,30 @@ const Home = () => {
 
     const [searchTerm, setSearchTerm] = useState("");
 
+    const [statusFilter, setStatusFilter] = useState("all");
+
     const filteredConcerts = concerts.filter((concert) => {
         const search = searchTerm.toLowerCase();
 
-        return (
+        const concertDate = new Date(concert.date);
+        const currentDate = new Date();
+        currentDate.setHours(0, 0, 0, 0);
+
+        let concertStatus = concert.status;
+
+        if (concert.status !== "Cancelled" && concertDate < currentDate) {
+            concertStatus = "Completed";
+        }
+
+        const matchesSearch =
             concert.artist.toLowerCase().includes(search) ||
             concert.tour.toLowerCase().includes(search) ||
-            concert.location.toLowerCase().includes(search)
-        );
+            concert.location.toLowerCase().includes(search);
+
+        const matchesStatus =
+            statusFilter === "all" || concertStatus === statusFilter;
+
+        return matchesSearch && matchesStatus;
     });
 
     const sortedConcerts = [...filteredConcerts].sort((a, b) => {
@@ -71,6 +87,15 @@ const Home = () => {
                     value={searchTerm}
                     onChange={(event) => setSearchTerm(event.target.value)}
                 />
+                <select
+                    value={statusFilter}
+                    onChange={(event) => setStatusFilter(event.target.value)}
+                >
+                    <option value="all">All statuses</option>
+                    <option value="Upcoming">Upcoming</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
                 <div className="concerts-grid">
                     {sortedConcerts.map((concert) => (
                         <ConcertCard
