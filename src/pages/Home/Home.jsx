@@ -8,7 +8,19 @@ const Home = () => {
 
     const [sortOption, setSortOption] = useState("date-asc");
 
-    const sortedConcerts = [...concerts].sort((a, b) => {
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const filteredConcerts = concerts.filter((concert) => {
+        const search = searchTerm.toLowerCase();
+
+        return (
+            concert.artist.toLowerCase().includes(search) ||
+            concert.tour.toLowerCase().includes(search) ||
+            concert.location.toLowerCase().includes(search)
+        );
+    });
+
+    const sortedConcerts = [...filteredConcerts].sort((a, b) => {
         if (sortOption === "date-asc") {
             return new Date(a.date) - new Date(b.date);
         }
@@ -53,6 +65,12 @@ const Home = () => {
                     <option value="artist-asc">Artist: A-Z</option>
                     <option value="artist-desc">Artist: Z-A</option>
                 </select>
+                <input
+                    type="text"
+                    placeholder="Search concerts..."
+                    value={searchTerm}
+                    onChange={(event) => setSearchTerm(event.target.value)}
+                />
                 <div className="concerts-grid">
                     {sortedConcerts.map((concert) => (
                         <ConcertCard

@@ -82,7 +82,9 @@ const ConcertDetails = () => {
                 <p>{concert?.description}</p>
 
                 <div className="concert-details-actions">
-                    <button className="edit-button" onClick={handleEdit}>Edit Concert</button>
+                    {concertStatus !== "Completed" && (
+                        <button className="edit-button" onClick={handleEdit}>Edit Concert</button>
+                    )}
                     <button className="delete-button" onClick={handleDelete}>
                         Delete Concert
                     </button>
