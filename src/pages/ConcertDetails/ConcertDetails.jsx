@@ -1,4 +1,5 @@
 import "./ConcertDetails.scss";
+import ConcertStats from "../../components/ConcertStats/ConcertStats.jsx";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -37,11 +38,6 @@ const ConcertDetails = () => {
         fetchConcert();
     }, [id]);
 
-    const remainingTickets = concert
-        ? concert.capacity - concert.ticketsSold
-        : 0;
-
-
     const handleEdit = () => {
         navigate(`/edit-concert/${id}`);
     };
@@ -75,11 +71,15 @@ const ConcertDetails = () => {
                 <p>Location: {concert?.location}</p>
                 <p>Genre: {concert?.genre}</p>
                 <p>Ticket price: {concert?.ticketPrice} €</p>
-                <p className="ticket-info">
-                    {concert?.ticketsSold} / {concert?.capacity} tickets sold
-                </p>
-                <p>Remaining tickets: {remainingTickets}</p>
                 <p>{concert?.description}</p>
+
+                {concert && (
+                    <ConcertStats
+                        ticketsSold={concert.ticketsSold}
+                        capacity={concert.capacity}
+                        ticketPrice={concert.ticketPrice}
+                    />
+                )}
 
                 <div className="concert-details-actions">
                     {concertStatus !== "Completed" && (
