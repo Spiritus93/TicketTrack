@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const ConcertCard = ({ id, artist, tour, date, location, ticketsSold, capacity, status }) => {
     const formattedDate = new Date(date).toLocaleDateString("sl-SI");
+    const occupancy = (ticketsSold / capacity) * 100;
 
     const concertDate = new Date(date);
     const currentDate = new Date();
@@ -22,7 +23,19 @@ const ConcertCard = ({ id, artist, tour, date, location, ticketsSold, capacity, 
             <p>{tour}</p>
             <p>{formattedDate}</p>
             <p>{location}</p>
-            <p>{ticketsSold} / {capacity} tickets sold</p>
+            <div className="ticket-progress">
+                <div className="ticket-progress-info">
+                    <span>Tickets sold</span>
+                    <span>{occupancy.toFixed(0)}%</span>
+                </div>
+
+                <div className="progress-bar">
+                    <div
+                        className="progress-bar-fill"
+                        style={{ width: `${occupancy}%` }}
+                    ></div>
+                </div>
+            </div>
             <NavLink className="details-link" to={`/concert-details/${id}`}>Concert Details</NavLink>
         </article>
     );
