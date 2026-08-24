@@ -16,9 +16,57 @@
   .concerts-grid {
     grid-template-columns: 1fr;
   }
+
+  .concert-controls {
+    flex-direction: column;
+
+    input,
+    select {
+      width: 100%;
+    }
+  }
 }
 
 .home {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.concert-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+
+  input,
+  select {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 0.95rem;
+
+    transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+  }
+
+  input {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  select {
+    cursor: pointer;
+  }
+
+  input:focus,
+  select:focus {
+    outline: none;
+    border-color: #444;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+  }
 }

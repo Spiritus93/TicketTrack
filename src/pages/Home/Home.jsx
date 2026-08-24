@@ -72,30 +72,34 @@ const Home = () => {
         <div className="home">
             <section className="concerts">
                 <h2 className="concerts-title">Available Concerts</h2>
-                <select
-                    value={sortOption}
-                    onChange={(event) => setSortOption(event.target.value)}
-                >
-                    <option value="date-asc">Date: earliest first</option>
-                    <option value="date-desc">Date: latest first</option>
-                    <option value="artist-asc">Artist: A-Z</option>
-                    <option value="artist-desc">Artist: Z-A</option>
-                </select>
-                <input
-                    type="text"
-                    placeholder="Search concerts..."
-                    value={searchTerm}
-                    onChange={(event) => setSearchTerm(event.target.value)}
-                />
-                <select
-                    value={statusFilter}
-                    onChange={(event) => setStatusFilter(event.target.value)}
-                >
-                    <option value="all">All statuses</option>
-                    <option value="Upcoming">Upcoming</option>
-                    <option value="Completed">Completed</option>
-                    <option value="Cancelled">Cancelled</option>
-                </select>
+                <div className="concert-controls">
+                    <input
+                        type="text"
+                        placeholder="Search concerts..."
+                        value={searchTerm}
+                        onChange={(event) => setSearchTerm(event.target.value)}
+                    />
+
+                    <select
+                        value={statusFilter}
+                        onChange={(event) => setStatusFilter(event.target.value)}
+                    >
+                        <option value="all">All statuses</option>
+                        <option value="Upcoming">Upcoming</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+
+                    <select
+                        value={sortOption}
+                        onChange={(event) => setSortOption(event.target.value)}
+                    >
+                        <option value="date-asc">Date: earliest first</option>
+                        <option value="date-desc">Date: latest first</option>
+                        <option value="artist-asc">Artist: A-Z</option>
+                        <option value="artist-desc">Artist: Z-A</option>
+                    </select>
+                </div>
                 <div className="concerts-grid">
                     {sortedConcerts.map((concert) => (
                         <ConcertCard
