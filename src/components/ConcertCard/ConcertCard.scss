@@ -31,6 +31,12 @@
   color: white;
   text-decoration: none;
   border-radius: 0.3rem;
+
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #444;
+  }
 }
 
 .ticket-progress {

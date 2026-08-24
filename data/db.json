@@ -104,6 +104,21 @@
       "description": "",
       "status": "Upcoming",
       "id": "iJiKEZ5dWxQ"
+    },
+    {
+      "artist": "Sum 41",
+      "tour": "Punk Out",
+      "date": "2026-12-03",
+      "time": "20:00",
+      "venue": "MC Pekarna",
+      "location": "Maribor, Slovenia",
+      "genre": "Punk",
+      "ticketPrice": "40",
+      "ticketsSold": 1500,
+      "capacity": 3000,
+      "description": "Punk out in Maribor!",
+      "status": "Upcoming",
+      "id": "VXf3gz3Fr5s"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

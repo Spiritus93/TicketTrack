@@ -29,17 +29,17 @@
 
     margin-top: 15px;
     cursor: pointer;
+
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #444;
+    }
   }
 
   .form-error {
     text-align: center;
     color: red;
     font-size: 0.9rem;
-  }
-
-  .form-success {
-    text-align: center;
-    color: green;
-    margin-top: 10px;
   }
 }

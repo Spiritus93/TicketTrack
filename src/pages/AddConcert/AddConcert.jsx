@@ -18,7 +18,6 @@ const AddConcert = () => {
     });
 
     const [errors, setErrors] = useState({});
-    const [success, setSuccess] = useState("");
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -31,7 +30,6 @@ const AddConcert = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        setSuccess("");
         const newErrors = {};
 
         if (formData.artist.trim() === "") {
@@ -133,7 +131,7 @@ const AddConcert = () => {
         });
 
         if (response.ok) {
-            setSuccess("Concert added successfully.");
+            window.alert("Concert added successfully.");
             setFormData({
                 artist: "",
                 tour: "",
@@ -145,7 +143,8 @@ const AddConcert = () => {
                 ticketPrice: "",
                 ticketsSold: "",
                 capacity: "",
-                description: ""
+                description: "",
+                status: "Upcoming"
             });
             setErrors({});
         }
@@ -235,11 +234,6 @@ const AddConcert = () => {
                 <textarea id="description" name="description" value={formData.description} onChange={handleChange} />
 
                 <input type="submit" value="Add Concert" />
-                {success && (
-                    <span className="form-success">
-                        {success}
-                    </span>
-                )}
             </form>
         </section>
     );
