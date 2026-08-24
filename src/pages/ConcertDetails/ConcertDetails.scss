@@ -17,6 +17,10 @@
   p {
     margin: 10px 0;
   }
+
+  strong {
+    font-weight: bold;
+  }
 }
 
 .concerts-title-details {
@@ -34,7 +38,10 @@
 
   button {
     padding: 10px 16px;
+    border: none;
+    border-radius: 0.3rem;
     cursor: pointer;
+    transition: 0.2s ease;
   }
 }
 
@@ -42,10 +49,18 @@
   background-color: #222;
   color: white;
   border-radius: 0.3rem;
+
+  &:hover {
+    background-color: #444;
+  }
 }
 
 .delete-button {
   background-color: #b83232;
   color: white;
   border-radius: 0.3rem;
+
+  &:hover {
+    background-color: #922828;
+  }
 }

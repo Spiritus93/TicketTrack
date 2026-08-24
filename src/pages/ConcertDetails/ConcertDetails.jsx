@@ -63,14 +63,14 @@ const ConcertDetails = () => {
             <h2 className="concerts-title-details">Concert Details</h2>
             <div className="concert-details">
                 <h3>{concert?.artist}</h3>
-                <p>Status: {concertStatus}</p>
-                <p>Tour: {concert?.tour}</p>
-                <p>Date: {formattedDate}</p>
-                <p>Time: {concert?.time}</p>
-                <p>Venue: {concert?.venue}</p>
-                <p>Location: {concert?.location}</p>
-                <p>Genre: {concert?.genre}</p>
-                <p>Ticket price: {concert?.ticketPrice} €</p>
+                <p><strong>Status:</strong> {concertStatus}</p>
+                <p><strong>Tour:</strong> {concert?.tour}</p>
+                <p><strong>Date:</strong> {formattedDate}</p>
+                <p><strong>Time:</strong> {concert?.time}</p>
+                <p><strong>Venue:</strong> {concert?.venue}</p>
+                <p><strong>Location:</strong> {concert?.location}</p>
+                <p><strong>Genre:</strong> {concert?.genre}</p>
+                <p><strong>Ticket price:</strong> {concert?.ticketPrice} €</p>
                 <p>{concert?.description}</p>
 
                 {concert && (
