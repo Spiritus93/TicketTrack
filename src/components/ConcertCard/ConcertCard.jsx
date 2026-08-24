@@ -18,10 +18,12 @@ const ConcertCard = ({ id, artist, tour, date, location, ticketsSold, capacity, 
 
     return (
         <article className="concert-card">
-            <h3>{artist}</h3>
-            <p className={`concert-status ${concertStatus.toLowerCase()}`}>
-                {concertStatus}
-            </p>
+            <div className="concert-card-header">
+                <h3>{artist}</h3>
+                <p className={`concert-status ${concertStatus.toLowerCase()}`}>
+                    {concertStatus}
+                </p>
+            </div>
             <p>{tour}</p>
             <p>{formattedDate}</p>
             <p>{location}</p>
