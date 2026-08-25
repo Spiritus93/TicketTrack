@@ -4,10 +4,16 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const ConcertDetails = () => {
+    const apiKey = import.meta.env.VITE_GEOAPIFY_API_KEY;
+
     const { id } = useParams();
     const url = `http://localhost:3000/concerts/${id}`;
 
     const [concert, setConcert] = useState(null);
+
+    const [coordinates, setCoordinates] = useState(null);
+
+    const [locationError, setLocationError] = useState(false);
 
     const formattedDate = concert?.date
         ? new Date(concert.date).toLocaleDateString("sl-SI")
@@ -37,6 +43,40 @@ const ConcertDetails = () => {
 
         fetchConcert();
     }, [id]);
+
+    useEffect(() => {
+        if (!concert) {
+            return;
+        }
+
+        const fetchLocation = async () => {
+            const address = `${concert.venue}, ${concert.location}`;
+            const encodedAddress = encodeURIComponent(address);
+
+            const response = await fetch(
+                `https://api.geoapify.com/v1/geocode/search?text=${encodedAddress}&apiKey=${apiKey}`
+            );
+
+            const data = await response.json();
+
+            if (data.features.length > 0) {
+                const locationCoordinates = data.features[0].geometry.coordinates;
+
+                setCoordinates({
+                    latitude: locationCoordinates[1],
+                    longitude: locationCoordinates[0]
+                });
+            } else {
+                setLocationError(true);
+            }
+        };
+
+        fetchLocation();
+    }, [concert]);
+
+    const mapUrl = coordinates
+        ? `https://maps.geoapify.com/v1/staticmap?style=osm-bright&width=600&height=300&center=lonlat:${coordinates.longitude},${coordinates.latitude}&zoom=14&marker=lonlat:${coordinates.longitude},${coordinates.latitude};color:%23ff0000;size:medium&apiKey=${apiKey}`
+        : "";
 
     const handleEdit = () => {
         navigate(`/edit-concert/${id}`);
@@ -69,6 +109,19 @@ const ConcertDetails = () => {
                 <p><strong>Time:</strong> {concert?.time}</p>
                 <p><strong>Venue:</strong> {concert?.venue}</p>
                 <p><strong>Location:</strong> {concert?.location}</p>
+
+                {coordinates ? (
+                    <img
+                        className="concert-map"
+                        src={mapUrl}
+                        alt={`Map showing ${concert?.venue}`}
+                    />
+                ) : locationError ? (
+                    <p className="map-error">Map location could not be found.</p>
+                ) : (
+                    <p className="map-loading">Loading map...</p>
+                )}
+
                 <p><strong>Genre:</strong> {concert?.genre}</p>
                 <p><strong>Ticket price:</strong> {concert?.ticketPrice} €</p>
                 <p>{concert?.description}</p>

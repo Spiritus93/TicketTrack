@@ -64,3 +64,17 @@
     background-color: #922828;
   }
 }
+
+.concert-map {
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 8px;
+  display: block;
+}
+
+.map-loading {
+  margin-top: 15px;
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}
