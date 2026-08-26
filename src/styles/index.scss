@@ -31,6 +31,18 @@ main {
   overflow-y: auto;
 }
 
+@media (max-width: 900px) {
+  main {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 1rem;
+  }
+}
+
 .home-background {
   background:
           linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),

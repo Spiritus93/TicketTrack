@@ -24,9 +24,11 @@ const ConcertCard = ({ id, artist, tour, date, location, ticketsSold, capacity, 
                     {concertStatus}
                 </p>
             </div>
-            <p>{tour}</p>
-            <p>{formattedDate}</p>
-            <p>{location}</p>
+            <div className="concert-card-info">
+                <p>{tour}</p>
+                <p>{formattedDate}</p>
+                <p>{location}</p>
+            </div>
             <div className="ticket-progress">
                 <div className="ticket-progress-info">
                     <span>Tickets sold</span>

@@ -3,14 +3,15 @@
   padding: 1.5rem;
   border-radius: 0.5rem;
 
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+
   h3 {
     font-size: 1.3rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
   }
-}
 
-.concert-card {
   p {
     margin-bottom: 0.3rem;
   }
@@ -24,6 +25,8 @@
 
 .details-link {
   display: inline-block;
+  justify-self: start;
+
   margin-top: 0.75rem;
   padding: 0.5rem 0.75rem;
 
@@ -41,6 +44,7 @@
 
 .ticket-progress {
   margin-top: 15px;
+  margin-bottom: 12px;
 }
 
 .ticket-progress-info {
