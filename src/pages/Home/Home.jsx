@@ -4,14 +4,13 @@ import { useEffect, useState } from "react";
 
 const Home = () => {
     const [concerts, setConcerts] = useState([]);
-    const url = "http://localhost:3000/concerts";
-
     const [sortOption, setSortOption] = useState("date-asc");
-
     const [searchTerm, setSearchTerm] = useState("");
-
     const [statusFilter, setStatusFilter] = useState("all");
 
+    const url = "http://localhost:3000/concerts";
+
+    // Filters concerts by search term and calculated concert status.
     const filteredConcerts = concerts.filter((concert) => {
         const search = searchTerm.toLowerCase();
 
@@ -36,6 +35,7 @@ const Home = () => {
         return matchesSearch && matchesStatus;
     });
 
+    // Sorts the already filtered concerts based on the selected option.
     const sortedConcerts = [...filteredConcerts].sort((a, b) => {
         if (sortOption === "date-asc") {
             return new Date(a.date) - new Date(b.date);
@@ -57,7 +57,6 @@ const Home = () => {
     });
 
     useEffect(() => {
-
         const fetchConcerts = async () => {
             const response = await fetch(url, {method: "GET"});
             const concerts = await response.json();
@@ -65,7 +64,6 @@ const Home = () => {
         };
 
         fetchConcerts();
-
     }, []);
 
     return(
@@ -78,7 +76,7 @@ const Home = () => {
                         placeholder="Search concerts..."
                         value={searchTerm}
                         onChange={(event) => setSearchTerm(event.target.value)}
-                    />
+                    /> {/* e: search */}
 
                     <select
                         value={statusFilter}
@@ -88,7 +86,7 @@ const Home = () => {
                         <option value="Upcoming">Upcoming</option>
                         <option value="Completed">Completed</option>
                         <option value="Cancelled">Cancelled</option>
-                    </select>
+                    </select> {/* e: filter */}
 
                     <select
                         value={sortOption}
@@ -98,8 +96,8 @@ const Home = () => {
                         <option value="date-desc">Date: latest first</option>
                         <option value="artist-asc">Artist: A-Z</option>
                         <option value="artist-desc">Artist: Z-A</option>
-                    </select>
-                </div>
+                    </select> {/* e: sort */}
+                </div> {/* e: concert-controls */}
                 <div className="concerts-grid">
                     {sortedConcerts.map((concert) => (
                         <ConcertCard
@@ -114,8 +112,9 @@ const Home = () => {
                             status={concert.status}
                         />
                     ))}
-                </div>
-            </section>
+                </div> {/* e: concerts-grid */}
+            </section> {/* e: concerts */}
+            {/* e: home */}
         </div>
     )
 }

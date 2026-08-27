@@ -53,7 +53,7 @@
       "venue": "Kino Šiška",
       "location": "Ljubljana, Slovenia",
       "genre": "Rock",
-      "ticketPrice": "55",
+      "ticketPrice": 55,
       "ticketsSold": 12000,
       "capacity": 20000,
       "description": "Journey playing at Kino Šiška.",

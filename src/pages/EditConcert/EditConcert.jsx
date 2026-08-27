@@ -22,9 +22,20 @@ const EditConcert = () => {
         fetchConcert();
     }, [id]);
 
+    // Updates the corresponding concert field when a form value changes.
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+
+        setConcert({
+            ...concert,
+            [name]: value
+        });
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        // Stores all validation errors before updating the concert.
         const newErrors = {};
 
         if (concert.artist.trim() === "") {
@@ -111,12 +122,20 @@ const EditConcert = () => {
             return;
         }
 
+        // Converts numeric form values before saving the updated concert.
+        const updatedConcert = {
+            ...concert,
+            ticketPrice: Number(concert.ticketPrice),
+            ticketsSold: Number(concert.ticketsSold),
+            capacity: Number(concert.capacity)
+        };
+
         await fetch(url, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(concert)
+            body: JSON.stringify(updatedConcert)
         });
 
         window.alert("Concert updated successfully.");
@@ -138,12 +157,7 @@ const EditConcert = () => {
                     id="artist"
                     name="artist"
                     value={concert?.artist || ""}
-                    onChange={(event) => {
-                        setConcert({
-                            ...concert,
-                            artist: event.target.value
-                        });
-                    }}
+                    onChange={handleChange}
                 />
                 {errors.artist && (
                     <span className="form-error" role="alert">
@@ -157,12 +171,7 @@ const EditConcert = () => {
                     id="tour"
                     name="tour"
                     value={concert?.tour || ""}
-                    onChange={(event) => {
-                        setConcert({
-                            ...concert,
-                            tour: event.target.value
-                        });
-                    }}
+                    onChange={handleChange}
                 />
                 {errors.tour && (
                     <span className="form-error" role="alert">
@@ -176,12 +185,7 @@ const EditConcert = () => {
                     id="date"
                     name="date"
                     value={concert?.date || ""}
-                    onChange={(event) => {
-                        setConcert({
-                            ...concert,
-                            date: event.target.value
-                        });
-                    }}
+                    onChange={handleChange}
                 />
                 {errors.date && (
                     <span className="form-error" role="alert">
@@ -195,12 +199,7 @@ const EditConcert = () => {
                     id="time"
                     name="time"
                     value={concert?.time || ""}
-                    onChange={(event) => {
-                        setConcert({
-                            ...concert,
-                            time: event.target.value
-                        });
-                    }}
+                    onChange={handleChange}
                 />
                 {errors.time && (
                     <span className="form-error" role="alert">
@@ -214,12 +213,7 @@ const EditConcert = () => {
                     id="venue"
                     name="venue"
                     value={concert?.venue || ""}
-                    onChange={(event) => {
-                        setConcert({
-                            ...concert,
-                            venue: event.target.value
-                        });
-                    }}
+                    onChange={handleChange}
                 />
                 {errors.venue && (
                     <span className="form-error" role="alert">
@@ -233,12 +227,7 @@ const EditConcert = () => {
                     id="location"
                     name="location"
                     value={concert?.location || ""}
-                    onChange={(event) => {
-                        setConcert({
-                            ...concert,
-                            location: event.target.value
-                        });
-                    }}
+                    onChange={handleChange}
                 />
                 {errors.location && (
                     <span className="form-error" role="alert">
@@ -252,12 +241,7 @@ const EditConcert = () => {
                     id="genre"
                     name="genre"
                     value={concert?.genre || ""}
-                    onChange={(event) => {
-                        setConcert({
-                            ...concert,
-                            genre: event.target.value
-                        });
-                    }}
+                    onChange={handleChange}
                 />
 
                 <label htmlFor="ticketPrice">* Ticket price (€):</label>
@@ -265,13 +249,8 @@ const EditConcert = () => {
                     type="number"
                     id="ticketPrice"
                     name="ticketPrice"
-                    value={concert?.ticketPrice || ""}
-                    onChange={(event) => {
-                        setConcert({
-                            ...concert,
-                            ticketPrice: event.target.value
-                        });
-                    }}
+                    value={concert?.ticketPrice ?? ""}
+                    onChange={handleChange}
                 />
                 {errors.ticketPrice && (
                     <span className="form-error" role="alert">
@@ -285,12 +264,7 @@ const EditConcert = () => {
                     id="ticketsSold"
                     name="ticketsSold"
                     value={concert?.ticketsSold ?? ""}
-                    onChange={(event) => {
-                        setConcert({
-                            ...concert,
-                            ticketsSold: event.target.value
-                        });
-                    }}
+                    onChange={handleChange}
                 />
                 {errors.ticketsSold && (
                     <span className="form-error" role="alert">
@@ -303,13 +277,8 @@ const EditConcert = () => {
                     type="number"
                     id="capacity"
                     name="capacity"
-                    value={concert?.capacity || ""}
-                    onChange={(event) => {
-                        setConcert({
-                            ...concert,
-                            capacity: event.target.value
-                        });
-                    }}
+                    value={concert?.capacity ?? ""}
+                    onChange={handleChange}
                 />
                 {errors.capacity && (
                     <span className="form-error" role="alert">
@@ -318,16 +287,11 @@ const EditConcert = () => {
                 )}
 
                 <label htmlFor="description">Description:</label>
-                <input
-                    type="textarea"
+                <textarea
+                    id="description"
                     name="description"
                     value={concert?.description || ""}
-                    onChange={(event) => {
-                        setConcert({
-                        ...concert,
-                        description: event.target.value
-                        });
-                    }}
+                    onChange={handleChange}
                 />
 
                 <label htmlFor="status">* Status:</label>
@@ -335,12 +299,7 @@ const EditConcert = () => {
                     id="status"
                     name="status"
                     value={concert?.status || ""}
-                    onChange={(event) => {
-                        setConcert({
-                            ...concert,
-                            status: event.target.value
-                        });
-                    }}
+                    onChange={handleChange}
                 >
                     <option value="Upcoming">Upcoming</option>
                     <option value="Cancelled">Cancelled</option>

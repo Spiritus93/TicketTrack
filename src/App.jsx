@@ -8,9 +8,9 @@ import Footer from "./components/Footer/Footer.jsx";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 function App() {
-
     const location = useLocation();
 
+    // Sets a different background depending on current page.
     let mainClass = "";
 
     if (location.pathname === "/") {

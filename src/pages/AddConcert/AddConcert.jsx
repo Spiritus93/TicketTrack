@@ -30,6 +30,8 @@ const AddConcert = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        // Stores all validation errors before submitting the form
         const newErrors = {};
 
         if (formData.artist.trim() === "") {
@@ -114,8 +116,10 @@ const AddConcert = () => {
             return;
         }
 
+        // Converts numeric form values before saving the concert
         const newConcert = {
             ...formData,
+            ticketPrice: Number(formData.ticketPrice),
             ticketsSold: Number(formData.ticketsSold),
             capacity: Number(formData.capacity)
         };
@@ -234,7 +238,8 @@ const AddConcert = () => {
                 <textarea id="description" name="description" value={formData.description} onChange={handleChange} />
 
                 <input type="submit" value="Add Concert" />
-            </form>
+            </form> {/* e: form */}
+            {/* e: add-concert */}
         </section>
     );
 };

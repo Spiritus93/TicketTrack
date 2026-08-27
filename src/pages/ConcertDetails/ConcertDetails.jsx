@@ -7,18 +7,19 @@ const ConcertDetails = () => {
     const apiKey = import.meta.env.VITE_GEOAPIFY_API_KEY;
 
     const { id } = useParams();
+    const navigate = useNavigate();
+
     const url = `http://localhost:3000/concerts/${id}`;
 
     const [concert, setConcert] = useState(null);
-
     const [coordinates, setCoordinates] = useState(null);
-
     const [locationError, setLocationError] = useState(false);
 
     const formattedDate = concert?.date
         ? new Date(concert.date).toLocaleDateString("sl-SI")
         : "";
 
+    // Automatically marks past concerts as completed unless they were canceled.
     let concertStatus = concert?.status;
 
     if (concert) {
@@ -31,8 +32,6 @@ const ConcertDetails = () => {
             concertStatus = "Completed";
         }
     }
-
-    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchConcert = async () => {
@@ -49,6 +48,7 @@ const ConcertDetails = () => {
             return;
         }
 
+        // Uses Geoapify to convert the venue and location into coordinates
         const fetchLocation = async () => {
             const address = `${concert.venue}, ${concert.location}`;
             const encodedAddress = encodeURIComponent(address);
@@ -141,8 +141,9 @@ const ConcertDetails = () => {
                     <button className="delete-button" onClick={handleDelete}>
                         Delete Concert
                     </button>
-                </div>
-            </div>
+                </div> {/* e: concert-details-actions */}
+            </div> {/* e: concert-details */}
+            {/* e: concerts */}
         </section>
     )
 }
