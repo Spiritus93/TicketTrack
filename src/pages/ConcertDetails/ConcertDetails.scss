@@ -1,3 +1,4 @@
+/* Concert details card */
 .concert-details {
   width: 100%;
   max-width: 500px;
@@ -31,6 +32,7 @@
   text-align: center;
 }
 
+/* Action buttons */
 .concert-details-actions {
   display: flex;
   gap: 10px;
@@ -41,7 +43,7 @@
     border: none;
     border-radius: 0.3rem;
     cursor: pointer;
-    transition: 0.2s ease;
+    transition: background-color 0.2s ease;
   }
 }
 
@@ -65,6 +67,7 @@
   }
 }
 
+/* Concert map */
 .concert-map {
   width: 100%;
   margin-top: 15px;
@@ -77,4 +80,10 @@
   text-align: center;
   color: #666;
   font-style: italic;
+}
+
+.map-error {
+  margin-top: 15px;
+  text-align: center;
+  color: #b83232;
 }

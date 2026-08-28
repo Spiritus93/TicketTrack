@@ -31,12 +31,14 @@ main {
   overflow-y: auto;
 }
 
+/* Tablet */
 @media (max-width: 900px) {
   main {
     padding: 1.5rem;
   }
 }
 
+/* Mobile */
 @media (max-width: 600px) {
   main {
     padding: 1rem;
