@@ -38,27 +38,29 @@ Before running the project, make sure you have installed:
 - npm
 
 You can check your installed versions with:
-
-- node -v
-- npm -v
+```bash
+node -v
+npm -v
+```
 
 ## Installation
 ### 1. Clone the repository
 
 Clone the repository and open the project folder:
-
+```bash
 git clone https://github.com/Spiritus93/TicketTrack
-
+```
 ### 2. Install dependencies
 
 Install the required dependencies:
-
+```bash
 npm install
+```
 ### 3. Configure the Geoapify API
 
 The application uses the Geoapify API to find coordinates and display concert locations on a static map.
 
-Create a .env local file in the root directory of the project:
+Create an .env local file in the root directory of the project:
 
 VITE_GEOAPIFY_API_KEY=your_api_key_here
 
@@ -71,26 +73,26 @@ A Geoapify API key can be obtained by creating a free tier account on Geoapify (
 The application uses JSON Server as a local REST API.
 
 Start JSON Server with:
-
+```bash
 json-server data/db.json
-
+```
 JSON Server should run on:
-
+```bash
 http://localhost:3000
-
+```
 The concerts API is available at:
-
+```bash
 http://localhost:3000/concerts
-
+```
 Keep this terminal running while using the application.
 
 ### 5. Start the application
 
 Open another terminal and run:
-
+```bash
 npm run dev
-
-Open the local address shown by Vite in your browser.
+```
+Open the local address shown in the terminal.
 
 ## Application Structure
 
